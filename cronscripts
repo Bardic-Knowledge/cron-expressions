@@ -1,0 +1,2 @@
+/* use in a cloudwatch event rule start or stop. 19 indicates 19utc */
+0 19 * * ? *
