@@ -1,0 +1,23 @@
+import boto3
+
+def lambda_handler(event, context):
+    # Initialize the EC2 client
+    ec2 = boto3.client('ec2')
+
+    # Define the instance IDs of the instances you want to stop/start
+    instance_ids = ['', '']
+
+    # Check if it's a "stop" or "start" event
+    action = event['action']
+
+    if action == 'stop':
+        ec2.stop_instances(InstanceIds=instance_ids)
+    elif action == 'start':
+        ec2.start_instances(InstanceIds=instance_ids)
+    else:
+        print("Invalid action")
+
+    return {
+        'statusCode': 200,
+        'body': 'Instances {}d successfully'.format(action)
+    }
