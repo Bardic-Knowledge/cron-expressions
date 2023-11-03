@@ -1,3 +1,4 @@
+#python script to run using lambda
 import boto3
 
 def lambda_handler(event, context):
